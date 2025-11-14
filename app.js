@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const providerSelect = document.getElementById('provider-select');
   
   // URL of our backend server
-  const API_URL = 'http://localhost:3000/api/chat';
-
+  const API_URL = `hhttps://sophia-sophia.onrender.com/api/chat`;
   // --- Client-side State ---
   // We mirror the session_state.messages from the Python example
   let messages = [];
