@@ -1,33 +1,43 @@
 {
-  "name": "Python 3",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+  "name": "Node.js Chatbot Server",
+  // Use the standard Node.js dev container image
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+
   "customizations": {
     "codespaces": {
       "openFiles": [
         "README.md",
-        "streamlit_app.py"
+        "server.js",
+        "index.html",
+        "app.js"
       ]
     },
     "vscode": {
       "settings": {},
       "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
       ]
     }
   },
-  "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
-  "postAttachCommand": {
-    "server": "streamlit run streamlit_app.py --server.enableCORS false --server.enableXsrfProtection false"
-  },
+
+  // Runs *after* the container is created, but before you connect
+  "postCreateCommand": "npm install",
+
+  // Runs *after* you attach to the container (e.g., when VS Code opens)
+  "postAttachCommand": "npm start",
+
   "portsAttributes": {
-    "8501": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
+    "3000": {
+      "label": "Application Server",
+      "onAutoForward": "notify",
+      // This is the line that makes the port public by default
+      "visibility": "public"
     }
   },
+
+  // Forward the port your Express server runs on
   "forwardPorts": [
-    8501
+    3000
   ]
 }
