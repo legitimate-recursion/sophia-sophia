@@ -4,10 +4,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-node_modules
+node_modules/
+.devcontainer/
+.env.dev
+
 # Distribution / packaging
 .Python
 build/

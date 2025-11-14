@@ -1,1 +1,0 @@
-import { openrouter } from '@openrouter/ai-sdk-provider'

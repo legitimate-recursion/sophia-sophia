@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 JS Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>💬 Chatbot</h1>
+        <p>This is a JavaScript chatbot that uses a Node.js backend to stream responses from various AI models.</p>
+    </div>
+
+    <div class="config">
+        <label for="provider-select">Select AI Provider:</label>
+        <select id="provider-select">
+            <option value="openrouter">OpenRouter (Longcat)</option>
+            <option value="aimlapi">AIMLAPI (Gemma)</option>
+        </select>
+    </div>
+
+    <div id="chat-container">
+        </div>
+
+    <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="What is up?" autocomplete="off" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>
